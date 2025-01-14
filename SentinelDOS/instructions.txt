@@ -1,0 +1,36 @@
+qemu-img convert -f qcow2 -O raw FD13FULL.qcow2 freedos.img  
+
+dd if=stage1.bin of=freedos.img bs=512 count=1 conv=notrunc
+dd if=stage2.boot of=freedos.img bs=512 seek=1 count=3 conv=notrunc
+qemu-system-i386 -drive file=freedos.img,format=raw
+
+
+qemu-system-i386 -drive file=FD13FULL.img,format=raw -monitor stdio
+
+
+
+
+
+dd if=sentinel_boot.bin of=FD13FULL.img bs=512 count=1 conv=notrunc
+qemu-system-i386 -drive file=FD13FULL.img,format=raw
+
+qemu-system-i386 -drive file=FD13FULL.img,format=raw -monitor stdio
+
+hexdump -C FD13FULL.img | less
+
+
+
+
+
+
+
+
+qemu-img convert -f qcow2 -O raw FD13FULL.qcow2 FD13FULL.img
+
+/Users/harrisonguo/Library/Containers/com.utmapp.UTM/Data/Documents/FreeDOS.zip/Data
+
+
+
+dd if=FD13FULL.img of=FD13FULL.img bs=512 count=1 seek=1 conv=notrunc
+
+963200597

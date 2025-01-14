@@ -1,0 +1,10 @@
+# 大文件
+*.img
+*.qcow2
+*.bin
+.DS_Store
+**/.DS_Store
+
+# 特定文件
+SentinelDOS/freedos.img
+SentinelDOS/FD13FULL.qcow2
